@@ -29,20 +29,21 @@ public class WordChanger {
             Charset charset = StandardCharsets.UTF_8;
 
             String content = new String(Files.readAllBytes(path), charset);
-            System.out.println("Write the string you want to change");
-            String toChange = scanner.next();
+//            System.out.println("Write the string you want to change");
+//            String toChange = scanner.next();
+//
+//            System.out.println("Write the replacement");
+//            String replacement = scanner.next();
 
-            System.out.println("Write the replacement");
-            String replacement = scanner.next();
-
-            content = content.replaceAll(toChange, replacement);
+            content = content.replaceAll("intelectual", "intellectual");
             Files.write(path, content.getBytes(charset));
-
+            JOptionPane.showMessageDialog(null, "SUCCESSFULLY DONE", "PROCESS", JOptionPane.WARNING_MESSAGE);
+            
         } catch (Exception e) {
             System.out.println("ERROR " + e.getMessage());
 
         }
-        JOptionPane.showMessageDialog(null, "IT IS SUCCESSFULLY DONE", "PROCESS", JOptionPane.WARNING_MESSAGE);
+
         System.exit(0);
 
     }
