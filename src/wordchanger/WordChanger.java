@@ -8,19 +8,22 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.Scanner;
+import java.util.HashMap;
 import javax.swing.JOptionPane;
 
 public class WordChanger {
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
 
+        //  HashMap<String,String> wordMap = new HashMap<>();
         try {
+            // Finds the file to edit
             FileDialog dialog = new FileDialog((Frame) null, "Select File to Open");
             dialog.setMode(FileDialog.LOAD);
             dialog.setVisible(true);
+
             String file = dialog.getDirectory() + "\\" + dialog.getFile();
+
             File txtFile = new File(file);
             File filePath = txtFile.getCanonicalFile();
 
@@ -29,16 +32,11 @@ public class WordChanger {
             Charset charset = StandardCharsets.UTF_8;
 
             String content = new String(Files.readAllBytes(path), charset);
-//            System.out.println("Write the string you want to change");
-//            String toChange = scanner.next();
-//
-//            System.out.println("Write the replacement");
-//            String replacement = scanner.next();
 
-            content = content.replaceAll("intelectual", "intellectual");
+            content = content.replaceAll("cd", "cdcd");
             Files.write(path, content.getBytes(charset));
             JOptionPane.showMessageDialog(null, "SUCCESSFULLY DONE", "PROCESS", JOptionPane.WARNING_MESSAGE);
-            
+
         } catch (Exception e) {
             System.out.println("ERROR " + e.getMessage());
 
