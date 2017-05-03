@@ -21,7 +21,7 @@ public class WordChanger {
             FileDialog dialog = new FileDialog((Frame) null, "Select File to Open");
             dialog.setMode(FileDialog.LOAD);
             dialog.setVisible(true);
-
+            //Structures the file path correctly
             String file = dialog.getDirectory() + "\\" + dialog.getFile();
 
             File txtFile = new File(file);
